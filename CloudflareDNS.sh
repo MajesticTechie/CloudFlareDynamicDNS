@@ -12,7 +12,7 @@ MyIp=`dig +short myip.opendns.com @resolver1.opendns.com`
 ## Checks is th record matches existing IP
 if [ "$CurrentDNS" != "$MyIp" ]; then
 ## If not, then update
-### Gets Record ID
+## Gets Record ID
 record_identifier=$(curl -s -X GET "https://api.cloudflare.com/client/v4/zones/$ZoneID/dns_records?name=$record" -H "X-Auth-Email: $auth_email" -H "X-Auth-Key: $auth_key" -H "Content-Type: application/json"  | grep -Po '(?<="id":")[^"]*')
 ## Pushes new IP to record
 curl -s -X PUT "https://api.cloudflare.com/client/v4/zones/$ZoneID/dns_records/$record_identifier" -H "X-Auth-Email: $auth_email" -H "X-Auth-Key: $auth_key" -H "Content-Type: application/json" --data "{\"id\":\"$ZoneID\",\"type\":\"A\",\"name\":\"$record\",\"content\":\"$MyIp\"}"

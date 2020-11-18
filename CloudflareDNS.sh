@@ -6,8 +6,8 @@ ZoneID="kjsdhfjksadhfkjasdf"
 auth_key="akjlsdflkasjdfl;kjasl;kdfjlk;a"
 
 
-## Gets your public IP and current record on domain
-CurrentDNS=`dig +short $record`
+## Gets your public IP and current record on domain using an external resolver
+CurrentDNS=`dig +short $record @1.1.1.1`
 MyIp=`dig +short myip.opendns.com @resolver1.opendns.com`
 
 

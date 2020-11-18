@@ -6,12 +6,12 @@ ZoneID="kjsdhfjksadhfkjasdf"
 auth_key="akjlsdflkasjdfl;kjasl;kdfjlk;a"
 
 
-#### Gets IP info and 
+## Gets your public IP and current record on domain
 CurrentDNS=`dig +short $record`
 MyIp=`dig +short myip.opendns.com @resolver1.opendns.com`
 
 
-### Gets Record info
+### Gets Record ID
 record_identifier=$(curl -s -X GET "https://api.cloudflare.com/client/v4/zones/$ZoneID/dns_records?name=$record" -H "X-Auth-Email: $auth_email" -H "X-Auth-Key: $auth_key" -H "Content-Type: application/json"  | grep -Po '(?<="id":")[^"]*')
 
 ## Checks is th record matches existing IP

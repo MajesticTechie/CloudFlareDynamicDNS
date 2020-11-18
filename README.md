@@ -10,3 +10,5 @@ record = which is the domain/subdomain you wish to have updated
 auth_email = your email you sign into CloudFlare with
 ZoneID = The Zone ID for your domain. You can get this from the "Overview" Section of your domain.
 auth_key = Your Private Key. Found in Cloudflare > your domain > Overview > "Get your API Token" > API Token > View "Global API Key"
+
+The idea is this will be setup as a Cron which will check your record periodically and update it if it detects a change.

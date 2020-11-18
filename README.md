@@ -7,7 +7,7 @@ This is a simple Bash Script which will:
 
 The idea is this will be setup as a Cron which will check your record periodically and update it if it detects a change.
 
-# There are 4 sections you need to edit to match what you need:
+# There are 4 sections you need to edit:
 record = which is the domain/subdomain you wish to have updated.
 
 auth_email = your email you sign into CloudFlare with.

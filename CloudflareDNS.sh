@@ -1,4 +1,5 @@
 #!/bin/bash
+
 ## Set your Custom Stuff Here
 record="subdomain.mydomain.com"
 auth_email="MyEmail@myemail.com"
@@ -9,9 +10,8 @@ auth_key="akjlsdflkasjdfl;kjasl;kdfjlk;a"
 CurrentDNS=`dig +short $record @1.1.1.1`
 MyIp=`dig +short myip.opendns.com @resolver1.opendns.com`
 
-## Checks is th record matches existing IP
+## Checks if the record matches existing IP
 if [ "$CurrentDNS" != "$MyIp" ]; then
-## If not, then update
 ## Gets Record ID
 record_identifier=$(curl -s -X GET "https://api.cloudflare.com/client/v4/zones/$ZoneID/dns_records?name=$record" -H "X-Auth-Email: $auth_email" -H "X-Auth-Key: $auth_key" -H "Content-Type: application/json"  | grep -Po '(?<="id":")[^"]*')
 ## Pushes new IP to record

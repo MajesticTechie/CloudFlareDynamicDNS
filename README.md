@@ -7,6 +7,13 @@ This is a simple Bash Script which will:
 
 The idea is this will be setup as a Cron which will check your record periodically and update it if it detects a change.
 
+# Quick install
+```
+curl https://raw.githubusercontent.com/MajesticTechie/CloudflareDynamicDNS/main/CloudflareDNS.sh > /cloudflare-dns.sh
+chmod +x /cloudflare-dns.sh
+echo "*/30 * * * * /cloudflare-dns.sh" >> /var/spool/cron/crontabs/root
+```
+
 # There are 4 sections you need to edit:
 record = which is the domain/subdomain you wish to have updated.
 
